@@ -249,14 +249,6 @@ flowchart TD
 ```
 
 ### Document Processing Pipeline Details
-### Document Processing Pipeline Details
-
-```
-DOCUMENT LOADING STAGE
-┌────────────────────────────────────────────────────────────────┐
-│ Input: PDF/TXT/DOCX files                                      │
-│                                                                 │
-### Document Processing Pipeline Details
 
 ```
 STAGE 1: DOCUMENT LOADING
@@ -416,13 +408,6 @@ flowchart TD
 - **Context Window**: Up to 8,192 tokens
 - **Inference Speed**: ~800 tokens/sec on Groq LPU™ (Language Processing Unit)
 - **Optimization**: Quantized for low-latency inference
-
----
-
-## � Features
-
-```
-┌──────────────────────────────────────────────────────────────────┐
 
 ---
 
