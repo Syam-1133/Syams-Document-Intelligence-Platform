@@ -1,0 +1,33 @@
+# Document Intelligence Platform - Dependencies
+
+# Core Framework
+streamlit
+
+# LangChain and LLM
+langchain
+langchain-groq
+langchain-openai
+langchain-community
+langchain-core
+langchain-text-splitters
+
+# Vector Store and Embeddings
+faiss-cpu
+openai
+
+# Document Processing
+pypdf
+python-docx
+
+# Voice Assistant
+pyttsx3
+SpeechRecognition
+gTTS
+pyaudio
+
+# API and HTTP
+requests
+
+# Utilities
+python-dotenv
+pandas
