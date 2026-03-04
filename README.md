@@ -102,11 +102,9 @@ graph TB
     end
     
     subgraph QPL["QUERY PROCESSING LAYER"]
-        AT_TYPE{Application Type}
-        SIMPLE[Simple Chat]
         DOC_QA[Document Q&A]
     end
-    
+
     subgraph RAG["RAG PIPELINE"]
         DL[Document Loader<br/>PyPDF/DOCX/TXT]
         TS[Text Splitter<br/>Recursive]
@@ -123,9 +121,7 @@ graph TB
     end
     
     UI --> QPL
-    QPL --> AT_TYPE
-    AT_TYPE --> SIMPLE
-    AT_TYPE --> DOC_QA
+    QPL --> DOC_QA
     DOC_QA --> RAG
     
     DL --> TS
@@ -344,14 +340,13 @@ STAGE 6: LLM INFERENCE (Groq API - Llama 3.1 8B)
 ┌────────────────────────────────────────────────────────────────┐
 │ Model: llama-3.1-8b-instant                                    │
 │ Temperature: 0.1 (low for factual accuracy)                    │
-│ Max Tokens: 1000                                               │
 │ Processing: LLM reads context + question                       │
 │ Generates: Coherent, context-aware answer                      │
 └────────────────────────────────────────────────────────────────┘
 
-STAGE 7: RESPONSE STREAMING
+STAGE 7: RESPONSE DISPLAY
 ┌────────────────────────────────────────────────────────────────┐
-│ • Stream tokens back to UI                                     │
+│ • Return complete response to UI (chain.invoke)                │
 │ • Display formatted response                                   │
 │ • Show source documents (for transparency)                     │
 └────────────────────────────────────────────────────────────────┘
@@ -362,7 +357,6 @@ STAGE 8: POST-PROCESSING (Optional)
 │ • Store in chat history                                        │
 │ • Update analytics metrics                                     │
 └────────────────────────────────────────────────────────────────┘
-```
 ```
 
 ### LLM Architecture Details
