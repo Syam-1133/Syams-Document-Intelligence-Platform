@@ -369,10 +369,6 @@ STAGE 8: POST-PROCESSING (Optional)
 
 #### Groq LLM (Llama 3.1 8B Instant)
 
-### LLM Architecture Details
-
-#### Groq LLM (Llama 3.1 8B Instant)
-
 ```mermaid
 flowchart TD
     A[Input Text] --> B[Tokenization<br/>SentencePiece<br/>4096-dim embeddings]
@@ -494,6 +490,10 @@ graph TB
 ```
 
 ---
+
+## 🧩 System Components
+
+### 1. Configuration Layer (`config/`)
 
 ```python
 # API Keys from environment
@@ -813,15 +813,6 @@ The app will open automatically in your browser at `http://localhost:8501`
 │  └────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────┘
 ```
-
----
-
-## 📖 Usage Guide
-```
-
-6. **Access the app**:
-   - Local: http://localhost:8501
-   - Network: http://YOUR_IP:8501
 
 ---
 
