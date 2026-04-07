@@ -42,7 +42,7 @@ st.markdown(DARK_THEME_CSS, unsafe_allow_html=True)
 initialize_session_state()
 
 # Main UI - Professional Header
-st.markdown('<div class="main-header">Syam\'s AI-Powered Document Analyzer</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-header"> AI-Powered Document Analyzer</div>', unsafe_allow_html=True)
 st.markdown(
     '<div class="sub-header">'
     '🚀 AI-Powered Document Analysis & Knowledge Extraction System<br>'

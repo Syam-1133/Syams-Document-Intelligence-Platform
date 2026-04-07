@@ -14,7 +14,7 @@ def initialize_session_state():
     if "last_spoken_text" not in st.session_state:
         st.session_state.last_spoken_text = ""
     if "selected_voice" not in st.session_state:
-        st.session_state.selected_voice = "Rachel"
+        st.session_state.selected_voice = "Bella"
     if "tts_provider" not in st.session_state:
         st.session_state.tts_provider = "elevenlabs"
     

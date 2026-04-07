@@ -2,6 +2,7 @@
 Settings Tab UI Component
 """
 import streamlit as st
+from config.settings import ELEVENLABS_VOICES
 
 def render_settings_tab():
     """Render the settings tab with configuration options"""
@@ -26,6 +27,8 @@ def render_settings_tab():
         text_splitter = st.selectbox("Text Splitter", ["RecursiveCharacterTextSplitter", "CharacterTextSplitter"])
         
         st.markdown("#### 🎙️ VOICE SETTINGS")
+        selected_voice = st.selectbox("Voice", list(ELEVENLABS_VOICES.keys()), index=list(ELEVENLABS_VOICES.keys()).index(st.session_state.selected_voice) if st.session_state.selected_voice in ELEVENLABS_VOICES else 0)
+        st.session_state.selected_voice = selected_voice
         tts_engine_choice = st.selectbox("TTS Engine", ["ElevenLabs (Premium)", "gTTS (Online)", "pyttsx3 (Offline)"])
         speech_rate = st.slider("Speech Rate", 50, 300, 150)
         auto_play_voice = st.checkbox("Auto-play voice responses", value=True)

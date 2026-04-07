@@ -43,15 +43,11 @@ SPEECH_PHRASE_TIME_LIMIT = 15
 
 # ElevenLabs Voice Options
 ELEVENLABS_VOICES = {
-    "Rachel": "21m00Tcm4TlvDq8ikWAM",
-    "Domi": "AZnzlk1XvdvUeBnXmlld",
-    "Bella": "EXAVITQu4vr4xnSDxMaL",
-    "Antoni": "ErXwobaYiN019PkySvjV",
-    "Elli": "MF3mGyEYCl7XYWbV9V6O",
-    "Josh": "TxGEqnHWrfWFTfGW9XjX",
-    "Arnold": "VR6AewLTigWG4xSOukaG",
-    "Adam": "pNInz6obpgDQGcFmaJgB",
-    "Sam": "yoZ06aMxZJJ28mfd3POQ"
+    "Bella": "hpp4J3VqNfWAUOO0d1Us",
+    "Sarah": "EXAVITQu4vr4xnSDxMaL",
+    "Harry": "SOYHLrjzK2X1ezoPC6cr",
+    "Liam": "TX3LPaxmHKxFdv7VOQHJ",
+    "Jessica": "cgSgspJ2msm6clMCkdW9"
 }
 
 # Page Configuration

@@ -36,7 +36,7 @@ def text_to_speech_elevenlabs(text, voice_id, stability=0.5, similarity_boost=0.
             return "❌ ElevenLabs API key not configured"
         
         # ElevenLabs API endpoint
-        url = f"https://api.elevenlabs.io/v1/text-to-speech/{ELEVENLABS_VOICES.get(voice_id, '21m00Tcm4TlvDq8ikWAM')}"
+        url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
         
         headers = {
             "Accept": "audio/mpeg",
@@ -82,7 +82,7 @@ def text_to_speech(text, provider="elevenlabs", voice_id=None):
     try:
         if provider == "elevenlabs" and ELEVENLABS_API_KEY:
             if not voice_id:
-                voice_id = ELEVENLABS_VOICES.get(st.session_state.selected_voice, "21m00Tcm4TlvDq8ikWAM")
+                voice_id = ELEVENLABS_VOICES.get(st.session_state.selected_voice, "hpp4J3VqNfWAUOO0d1Us")
             return text_to_speech_elevenlabs(text[:800], voice_id)  # Limit text length
                 
     except Exception as e:
