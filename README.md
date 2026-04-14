@@ -20,7 +20,7 @@
 
 ---
 
-### 🎯 *An enterprise-grade, modular AI system leveraging RAG architecture to transform how you interact with documents*
+###  *An enterprise-grade, modular AI system leveraging RAG architecture to transform how you interact with documents*
 
 [Features](#-features) • [Quick Start](#-setup--installation) • [Architecture](#-project-architecture) • [Documentation](#-table-of-contents) • [Demo](#-usage-guide)
 
@@ -28,7 +28,7 @@
 
 ---
 
-## 🌟 Why This Project?
+##  Why This Project?
 
 <table>
   <tr>
@@ -36,7 +36,7 @@
     <td>Process documents and get answers in <2 seconds with Groq LPU™</td>
   </tr>
   <tr>
-    <td>🎯 <b>100% Accurate</b></td>
+    <td> <b>100% Accurate</b></td>
     <td>RAG architecture ensures responses grounded in your documents</td>
   </tr>
   <tr>
@@ -44,22 +44,22 @@
     <td>Premium ElevenLabs voices with speech-to-text capabilities</td>
   </tr>
   <tr>
-    <td>🔒 <b>Enterprise Ready</b></td>
+    <td> <b>Enterprise Ready</b></td>
     <td>Modular, scalable architecture with comprehensive error handling</td>
   </tr>
   <tr>
-    <td>🎨 <b>Beautiful UI</b></td>
+    <td> <b>Beautiful UI</b></td>
     <td>Dark-themed, gradient-styled professional interface</td>
   </tr>
   <tr>
-    <td>📊 <b>Real-time Analytics</b></td>
+    <td> <b>Real-time Analytics</b></td>
     <td>Monitor performance, track queries, and optimize workflows</td>
   </tr>
 </table>
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 1. [Overview](#overview)
 2. [Project Architecture](#project-architecture)
@@ -73,7 +73,7 @@
 
 ---
 
-## 🎯 Overview
+##  Overview
 
 The Document Intelligence Platform is a sophisticated document analysis system that leverages cutting-edge AI technologies to extract insights from documents. Built on a **RAG (Retrieval-Augmented Generation)** architecture, it combines vector search with large language models to provide accurate, context-aware answers from your document corpus.
 
@@ -88,7 +88,7 @@ The Document Intelligence Platform is a sophisticated document analysis system t
 
 ---
 
-## 🏗️ Project Architecture
+##  Project Architecture
 
 ### High-Level System Architecture
 
@@ -172,7 +172,7 @@ graph LR
 
 ---
 
-## 🧠 RAG Pipeline & LLM Processing
+##  RAG Pipeline & LLM Processing
 
 ### What is RAG (Retrieval-Augmented Generation)?
 
@@ -414,35 +414,35 @@ graph LR
         D4[Batch Upload]
     end
     
-    subgraph AI["🧠 AI Q&A SYSTEM"]
+    subgraph AI[" AI Q&A SYSTEM"]
         A1[Context-Aware]
         A2[RAG Pipeline]
         A3[Source Tracking]
         A4[Fast Response]
     end
     
-    subgraph VOICE["🎙️ VOICE ASSISTANT"]
+    subgraph VOICE[" VOICE ASSISTANT"]
         V1[Speech-to-Text]
         V2[Text-to-Speech]
         V3[9 Premium Voices]
         V4[Voice History]
     end
     
-    subgraph ANALYTICS["📊 ANALYTICS DASHBOARD"]
+    subgraph ANALYTICS[" ANALYTICS DASHBOARD"]
         AN1[Query Statistics]
         AN2[Performance Metrics]
         AN3[Usage Analytics]
         AN4[Real-time Monitoring]
     end
     
-    subgraph VECTOR["🔍 VECTOR SEARCH"]
+    subgraph VECTOR[" VECTOR SEARCH"]
         VE1[FAISS Index]
         VE2[Semantic Search]
         VE3[Top-K Retrieval]
         VE4[Fast Similarity]
     end
     
-    subgraph UI["🎨 UI/UX DESIGN"]
+    subgraph UI[" UI/UX DESIGN"]
         U1[Dark Theme]
         U2[Gradient Styling]
         U3[Responsive Layout]
@@ -461,13 +461,13 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph SIMPLE["❌ SIMPLE CHAT"]
+    subgraph SIMPLE[" SIMPLE CHAT"]
         S1[User Input] --> S2[ChatGPT API<br/>No Context]
         S2 --> S3[Generic Response]
         S3 --> S4["No Doc Context<br/>Generic Answers<br/>No Sources<br/>Hallucination Risk"]
     end
     
-    subgraph DOC_QA["✅ DOCUMENT Q&A - OUR SYSTEM"]
+    subgraph DOC_QA[" DOCUMENT Q&A - OUR SYSTEM"]
         D1[User + Documents] --> D2[Document Loader]
         D2 --> D3[Text Splitter<br/>Embeddings]
         D3 --> D4[(FAISS Store)]
@@ -485,7 +485,7 @@ graph TB
 
 ---
 
-## 🧩 System Components
+##  System Components
 
 ### 1. Configuration Layer (`config/`)
 
@@ -566,7 +566,7 @@ RETRIEVAL_K = 4 (top K documents)
 
 ---
 
-## 💻 Technical Stack
+##  Technical Stack
 
 | Component | Technology | Purpose |
 |-----------|-----------|---------|
@@ -582,7 +582,7 @@ RETRIEVAL_K = 4 (top K documents)
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 Syams Ai/
@@ -592,20 +592,20 @@ Syams Ai/
 ├── .env                        # API keys (not in repo)
 ├── research_papers/            # Default document directory
 │
-├── config/                     # ⚙️ Configuration modules
+├── config/                     #  Configuration modules
 │   ├── settings.py            # Application settings and API keys
 │   ├── styling.py             # Dark theme CSS styling
 │   └── prompts.py             # LLM prompt templates
 │
-├── utils/                      # 🛠️ Utility functions
+├── utils/                      #  Utility functions
 │   ├── document_loader.py     # Document loading utilities
 │   └── session_state.py       # Session state management
 │
-├── services/                   # 🧠 Core services
+├── services/                   #  Core services
 │   ├── llm_service.py         # LLM and vector processing (RAG)
 │   └── voice_service.py       # Voice assistant (TTS/STT)
 │
-└── components/                 # 🎨 UI components
+└── components/                 # UI components
     ├── sidebar.py             # Sidebar with system dashboard
     ├── query_tab.py           # Document query interface
     ├── voice_tab.py           # Voice assistant interface
@@ -627,19 +627,19 @@ Syams Ai/
 
 <table>
   <tr>
-    <td>🐍 <b>Python</b></td>
+    <td>  <b>Python</b></td>
     <td>3.8 or higher</td>
   </tr>
   <tr>
-    <td>📦 <b>pip</b></td>
+    <td>  <b>pip</b></td>
     <td>Package manager</td>
   </tr>
   <tr>
-    <td>🎤 <b>Microphone</b></td>
+    <td> <b>Microphone</b></td>
     <td>For voice features (optional)</td>
   </tr>
   <tr>
-    <td>🔑 <b>API Keys</b></td>
+    <td>  <b>API Keys</b></td>
     <td>OpenAI, Groq, ElevenLabs</td>
   </tr>
 </table>
@@ -647,7 +647,7 @@ Syams Ai/
 ### Installation Steps
 
 <details>
-<summary><b>📥 Step 1: Clone or Download</b></summary>
+<summary><b>  Step 1: Clone or Download</b></summary>
 
 ```bash
 # Clone the repository
@@ -658,7 +658,7 @@ cd document-intelligence-platform
 </details>
 
 <details>
-<summary><b>🐍 Step 2: Create Virtual Environment</b></summary>
+<summary><b> Step 2: Create Virtual Environment</b></summary>
 
 ```bash
 # Create virtual environment
@@ -673,7 +673,7 @@ venv\Scripts\activate  # On Windows
 </details>
 
 <details>
-<summary><b>📦 Step 3: Install Dependencies</b></summary>
+<summary><b> Step 3: Install Dependencies</b></summary>
 
 ```bash
 # Install all required packages
@@ -683,7 +683,7 @@ pip install -r requirements.txt
 </details>
 
 <details>
-<summary><b>🔑 Step 4: Configure API Keys</b></summary>
+<summary><b> Step 4: Configure API Keys</b></summary>
 
 Create a `.env` file in the root directory:
 
@@ -702,7 +702,7 @@ ELEVENLABS_API_KEY=...
 </details>
 
 <details>
-<summary><b>🚀 Step 5: Run the Application</b></summary>
+<summary><b> Step 5: Run the Application</b></summary>
 
 ```bash
 # Start the Streamlit app
@@ -727,21 +727,21 @@ The app will open automatically in your browser at `http://localhost:8501`
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  🔍 DOCUMENT QUERY INTERFACE                                │
+│   DOCUMENT QUERY INTERFACE                                │
 │                                                              │
 │  [Upload Documents: PDF, TXT, DOCX]     [Process ▶]        │
 │  ────────────────────────────────────────────────────────  │
 │                                                              │
-│  💬 Ask your question:                                      │
+│   Ask your question:                                      │
 │  ┌────────────────────────────────────────────────────┐   │
 │  │ What are the main findings in these documents?     │   │
 │  └────────────────────────────────────────────────────┘   │
 │                                                              │
-│  [🔍 ANALYZE DOCUMENTS]  [🔊 SPEAK ANSWER]               │
+│  [ ANALYZE DOCUMENTS]  [🔊 SPEAK ANSWER]               │
 │                                                              │
 │  ────────────────────────────────────────────────────────  │
 │                                                              │
-│  📋 AI RESPONSE:                                            │
+│   AI RESPONSE:                                            │
 │  ┌────────────────────────────────────────────────────┐   │
 │  │ Based on the analyzed documents, the main          │   │
 │  │ findings are:                                       │   │
@@ -753,7 +753,7 @@ The app will open automatically in your browser at `http://localhost:8501`
 │  │ Source: research_paper_2024.pdf (Page 12-15)       │   │
 │  └────────────────────────────────────────────────────┘   │
 │                                                              │
-│  ⏱️ Response: 1.2s  |  📚 Sources: 4  |  🤖 Llama-3.1     │
+│   Response: 1.2s  |  Sources: 4  |    Llama-3.1     │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -761,15 +761,15 @@ The app will open automatically in your browser at `http://localhost:8501`
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  🎙️ VOICE-ENABLED DOCUMENT ASSISTANT                       │
+│   VOICE-ENABLED DOCUMENT ASSISTANT                       │
 │                                                              │
-│  [🎤 Start Listening] [🔊 Repeat] [🎵 Preview] [⏹️ Stop]   │
+│  [ Start Listening] [🔊 Repeat] [🎵 Preview] [ Stop]   │
 │                                                              │
 │  ────────────────────────────────────────────────────────  │
 │                                                              │
-│  🎤 You asked: "Summarize the methodology section"          │
+│   You asked: "Summarize the methodology section"          │
 │                                                              │
-│  🔊 AI Response (with audio):                               │
+│   AI Response (with audio):                               │
 │  ┌────────────────────────────────────────────────────┐   │
 │  │ [▶ Playing Audio...]                                │   │
 │  │ "The methodology section describes a hybrid         │   │
@@ -777,7 +777,7 @@ The app will open automatically in your browser at `http://localhost:8501`
 │  │  statistical methods..."                            │   │
 │  └────────────────────────────────────────────────────┘   │
 │                                                              │
-│  🎙️ Voice: Rachel (ElevenLabs Premium)                     │
+│   Voice: Rachel (ElevenLabs Premium)                     │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -785,19 +785,19 @@ The app will open automatically in your browser at `http://localhost:8501`
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  📊 SYSTEM ANALYTICS                                        │
+│   SYSTEM ANALYTICS                                        │
 │                                                              │
 │  ┌──────────────────┐  ┌──────────────────┐               │
-│  │ 📄 Total Docs    │  │ ⚡ Avg Response  │               │
+│  │  Total Docs    │  │ ⚡ Avg Response  │               │
 │  │    1,234         │  │    1.8s          │               │
 │  └──────────────────┘  └──────────────────┘               │
 │                                                              │
 │  ┌──────────────────┐  ┌──────────────────┐               │
-│  │ 💬 Total Queries │  │ 🎙️ Voice Queries│               │
+│  │  Total Queries │  │ | Voice Queries│               │
 │  │    5,678         │  │    892           │               │
 │  └──────────────────┘  └──────────────────┘               │
 │                                                              │
-│  📈 Performance Over Time                                   │
+│   Performance Over Time                                   │
 │  ┌────────────────────────────────────────────────────┐   │
 │  │  ╭─╮     ╭─╮                                        │   │
 │  │  │ │╭─╮╭─╯ ╰─╮  ╭─╮                                │   │
@@ -810,14 +810,14 @@ The app will open automatically in your browser at `http://localhost:8501`
 
 ---
 
-## 📖 Usage Guide
+##  Usage Guide
 
 ### 1. Document Upload & Processing
 
 **Option A: Upload Files**
-- Click "📤 UPLOAD DOCUMENTS" in sidebar
+- Click " UPLOAD DOCUMENTS" in sidebar
 - Select PDF, TXT, or DOCX files
-- Click "🚀 PROCESS UPLOADED FILES"
+- Click " PROCESS UPLOADED FILES"
 - Wait for vector embedding generation (~1-2 min for 100 pages)
 
 **Option B: Use Existing Documents**
@@ -835,7 +835,7 @@ The app will open automatically in your browser at `http://localhost:8501`
 
 **In Query Tab**:
 1. Type question: "What are the main findings?"
-2. Click "🔍 ANALYZE DOCUMENTS"
+2. Click " ANALYZE DOCUMENTS"
 3. View response with:
    - AI-generated answer
    - Response time metric
@@ -850,11 +850,11 @@ The app will open automatically in your browser at `http://localhost:8501`
 ### 3. Voice Assistant
 
 **In Voice Assistant Tab**:
-1. Click "🎤 Start Listening"
+1. Click " Start Listening"
 2. Speak your question clearly
 3. System transcribes → processes → responds with audio
 4. View transcript and answer
-5. Use "🔊 Repeat Answer" to replay
+5. Use " Repeat Answer" to replay
 
 **Voice Features**:
 - Preview voices with "🎵 Preview Voice"
@@ -879,7 +879,7 @@ The app will open automatically in your browser at `http://localhost:8501`
 
 ---
 
-## 🔌 API Integration Details
+##  API Integration Details
 
 ### OpenAI Embeddings API
 ```python
@@ -910,7 +910,7 @@ Quality: 44.1kHz, studio-grade
 
 ---
 
-## 🎯 Architecture Benefits
+##  Architecture Benefits
 
 <div align="center">
 
@@ -929,15 +929,15 @@ Quality: 44.1kHz, studio-grade
 <div align="center">
 
 ```
-🔐 API Keys in .env          🏠 Local Processing          🔒 HTTPS Communications
-📝 No data persistence       💾 In-memory vectors         🛡️ No external data sharing
+ API Keys in .env           Local Processing           HTTPS Communications
+ No data persistence        In-memory vectors          No external data sharing
 ```
 
 </div>
 
 ---
 
-## 🗺️ Roadmap & Future Enhancements
+##  Roadmap & Future Enhancements
 
 <div align="center">
 
@@ -1010,12 +1010,10 @@ streamlit run app_new.py
 
 ---
 
-## 💬 Support & Community
+## 💬 Support
 
 <div align="center">
 
-[![Discord](https://img.shields.io/badge/Discord-Join_Community-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/your-invite)
-[![Twitter](https://img.shields.io/badge/Twitter-Follow-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/syamgudipudi)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/syamgudipudi)
 [![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:your-email@example.com)
 
@@ -1097,7 +1095,7 @@ copies or substantial portions of the Software.
 ---
 
 [![GitHub followers](https://img.shields.io/github/followers/syamgudipudi?style=social)](https://github.com/syamgudipudi)
-[![Twitter Follow](https://img.shields.io/twitter/follow/syamgudipudi?style=social)](https://twitter.com/syamgudipudi)
+
 
 **© 2026 Document Intelligence Platform. All Rights Reserved.**
 
