@@ -1019,24 +1019,7 @@ streamlit run app_new.py
 
 </div>
 
----
 
-## 📊 Project Stats
-
-<div align="center">
-
-<img src="https://img.shields.io/github/stars/syamgudipudi/document-intelligence-platform?style=social" alt="Stars">
-<img src="https://img.shields.io/github/forks/syamgudipudi/document-intelligence-platform?style=social" alt="Forks">
-<img src="https://img.shields.io/github/watchers/syamgudipudi/document-intelligence-platform?style=social" alt="Watchers">
-<img src="https://img.shields.io/github/contributors/syamgudipudi/document-intelligence-platform" alt="Contributors">
-<img src="https://img.shields.io/github/issues/syamgudipudi/document-intelligence-platform" alt="Issues">
-<img src="https://img.shields.io/github/issues-pr/syamgudipudi/document-intelligence-platform" alt="Pull Requests">
-<img src="https://img.shields.io/github/last-commit/syamgudipudi/document-intelligence-platform" alt="Last Commit">
-<img src="https://img.shields.io/github/repo-size/syamgudipudi/document-intelligence-platform" alt="Repo Size">
-
-</div>
-
----
 
 ## 🙏 Acknowledgments
 
