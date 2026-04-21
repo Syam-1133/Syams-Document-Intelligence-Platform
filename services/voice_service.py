@@ -31,6 +31,14 @@ def init_speech_recognizer():
     """Initialize speech recognition"""
     return sr.Recognizer()
 
+def is_microphone_available():
+    """Check if microphone is available"""
+    try:
+        with sr.Microphone() as source:
+            return True
+    except Exception as e:
+        return False
+
 def text_to_speech_elevenlabs(text, voice_id, stability=0.5, similarity_boost=0.5):
     """Convert text to speech using ElevenLabs API"""
     try:
@@ -93,6 +101,9 @@ def text_to_speech(text, provider="elevenlabs", voice_id=None):
 def speech_to_text():
     """Convert speech to text using microphone input"""
     try:
+        if not is_microphone_available():
+            return "Microphone not available. Please check your audio settings."
+        
         speech_recognizer = init_speech_recognizer()
         with sr.Microphone() as source:
             st.session_state.listening = True
@@ -176,6 +187,9 @@ def _background_listener_worker():
 def start_background_listener():
     """Start background listening in a separate thread"""
     global _listener_thread, _stop_listening
+
+    if not is_microphone_available():
+        return "Microphone not available. Cannot start background listening."
 
     if _listener_thread is not None and _listener_thread.is_alive():
         return "Background listener already running"
