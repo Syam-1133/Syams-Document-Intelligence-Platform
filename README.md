@@ -586,7 +586,6 @@ RETRIEVAL_K = 4 (top K documents)
 
 ```
 Syams Ai/
-├── app.py                      # Original monolithic application (backup)
 ├── app_new.py                  # New modular main application
 ├── requirements.txt            # Python dependencies
 ├── .env                        # API keys (not in repo)
