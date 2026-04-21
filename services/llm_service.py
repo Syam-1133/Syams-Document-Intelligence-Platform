@@ -176,3 +176,66 @@ def process_query(user_prompt):
     except Exception as e:
         st.error(f"❌ Error processing query: {str(e)}")
         return None, 0
+
+def process_query_streaming(user_prompt):
+    """Stream LLM response token by token (real-time responses)"""
+    try:
+        llm = get_llm()
+        if llm is None:
+            st.error("❌ LLM not initialized")
+            return
+
+        # Check if vector store exists
+        if "vectors" not in st.session_state:
+            st.error("❌ No documents loaded. Please process documents first.")
+            return
+
+        # Create retriever
+        retriever = st.session_state.vectors.as_retriever(
+            search_type="similarity",
+            search_kwargs={"k": RETRIEVAL_K}
+        )
+
+        # Get relevant documents
+        try:
+            docs = retriever.invoke(user_prompt)
+        except Exception as e:
+            st.error(f"❌ Error retrieving documents: {str(e)}")
+            return
+
+        if not docs:
+            st.warning("⚠️ No relevant documents found for this query.")
+            return
+
+        # Format context
+        context = "\n\n".join([doc.page_content for doc in docs])
+
+        # Create chain with LCEL
+        chain = (
+            {"context": lambda x: context, "input": RunnablePassthrough()}
+            | DOCUMENT_ANALYSIS_PROMPT
+            | llm
+            | StrOutputParser()
+        )
+
+        # Stream the response token by token
+        accumulated_response = ""
+        token_count = 0
+
+        try:
+            for token in chain.stream(user_prompt):
+                if token:  # Only yield non-empty tokens
+                    accumulated_response += token
+                    token_count += 1
+                    yield token, accumulated_response, docs
+
+            # Yield final response with timing
+            yield None, accumulated_response, docs  # None indicates stream complete
+
+        except Exception as e:
+            st.error(f"❌ Error during streaming: {str(e)}")
+            yield None, accumulated_response, docs  # Return what we have so far
+
+    except Exception as e:
+        st.error(f"❌ Error in streaming query: {str(e)}")
+        return

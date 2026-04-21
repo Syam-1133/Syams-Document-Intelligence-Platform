@@ -7,6 +7,8 @@ import speech_recognition as sr
 import io
 import base64
 import requests
+import threading
+import time
 from config.settings import ELEVENLABS_API_KEY, ELEVENLABS_VOICES, SPEECH_RATE, SPEECH_VOLUME, SPEECH_TIMEOUT, SPEECH_PHRASE_TIME_LIMIT
 
 @st.cache_resource
@@ -121,3 +123,104 @@ def speech_to_text():
     except Exception as e:
         st.session_state.listening = False
         return f"Error: {str(e)}"
+
+
+# Background listening thread management
+_listener_thread = None
+_stop_listening = False
+
+
+def _background_listener_worker():
+    """Worker function for background listening in separate thread"""
+    global _stop_listening
+    try:
+        speech_recognizer = init_speech_recognizer()
+
+        while not _stop_listening:
+            try:
+                with sr.Microphone() as source:
+                    st.session_state.is_recording = True
+                    speech_recognizer.adjust_for_ambient_noise(source, duration=0.5)
+
+                    # Listen for audio
+                    audio = speech_recognizer.listen(
+                        source,
+                        timeout=SPEECH_TIMEOUT,
+                        phrase_time_limit=SPEECH_PHRASE_TIME_LIMIT
+                    )
+
+                    # Recognize speech
+                    text = speech_recognizer.recognize_google(audio)
+                    st.session_state.is_recording = False
+
+                    # Put transcribed text in queue
+                    st.session_state.audio_queue.put(text)
+
+            except sr.WaitTimeoutError:
+                st.session_state.is_recording = False
+                continue
+            except sr.UnknownValueError:
+                st.session_state.is_recording = False
+                st.session_state.audio_queue.put("UNKNOWN_AUDIO")
+            except sr.RequestError as e:
+                st.session_state.is_recording = False
+                st.session_state.audio_queue.put(f"ERROR:{str(e)}")
+            except Exception as e:
+                st.session_state.is_recording = False
+                st.session_state.audio_queue.put(f"ERROR:{str(e)}")
+    except Exception as e:
+        st.session_state.is_recording = False
+        st.session_state.audio_queue.put(f"THREAD_ERROR:{str(e)}")
+
+
+def start_background_listener():
+    """Start background listening in a separate thread"""
+    global _listener_thread, _stop_listening
+
+    if _listener_thread is not None and _listener_thread.is_alive():
+        return "Background listener already running"
+
+    _stop_listening = False
+    _listener_thread = threading.Thread(target=_background_listener_worker, daemon=True)
+    _listener_thread.start()
+    st.session_state.listening = True
+    return "Background listener started"
+
+
+def stop_background_listener():
+    """Stop background listening thread gracefully"""
+    global _listener_thread, _stop_listening
+
+    _stop_listening = True
+    if _listener_thread is not None:
+        _listener_thread.join(timeout=2)
+    st.session_state.listening = False
+    return "Background listener stopped"
+
+
+def get_transcription_from_queue(timeout=1):
+    """Get transcribed text from queue without blocking"""
+    try:
+        transcription = st.session_state.audio_queue.get(timeout=timeout)
+
+        # Handle error messages
+        if isinstance(transcription, str):
+            if transcription.startswith("ERROR"):
+                error_msg = transcription.replace("ERROR:", "")
+                return None, f"Speech recognition error: {error_msg}"
+            elif transcription.startswith("THREAD_ERROR"):
+                error_msg = transcription.replace("THREAD_ERROR:", "")
+                return None, f"Background listener error: {error_msg}"
+            elif transcription == "UNKNOWN_AUDIO":
+                return None, "Could not understand audio"
+
+        return transcription, None
+
+    except:
+        return None, None
+
+
+def is_background_listener_running():
+    """Check if background listener is currently running"""
+    global _listener_thread
+    return _listener_thread is not None and _listener_thread.is_alive()

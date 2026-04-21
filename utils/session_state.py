@@ -17,6 +17,16 @@ def initialize_session_state():
         st.session_state.selected_voice = "Bella"
     if "tts_provider" not in st.session_state:
         st.session_state.tts_provider = "elevenlabs"
+
+    # Streaming state variables
+    if "is_recording" not in st.session_state:
+        st.session_state.is_recording = False
+    if "transcription_ready" not in st.session_state:
+        st.session_state.transcription_ready = False
+    if "streaming_response" not in st.session_state:
+        st.session_state.streaming_response = ""
+    if "use_streaming" not in st.session_state:
+        st.session_state.use_streaming = True
     
     # Chat and document states
     if "chat_history" not in st.session_state:

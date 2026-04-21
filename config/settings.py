@@ -41,6 +41,12 @@ SPEECH_VOLUME = 0.8
 SPEECH_TIMEOUT = 10
 SPEECH_PHRASE_TIME_LIMIT = 15
 
+# Streaming Configuration
+STREAMING_ENABLED = True
+STREAMING_BUFFER_SIZE = 256  # Chunk size for audio buffering
+STREAMING_TIMEOUT = 30  # Timeout for streaming response
+TOKEN_BATCH_SIZE = 5  # Batch tokens before sending to audio
+
 # ElevenLabs Voice Options
 ELEVENLABS_VOICES = {
     "Bella": "hpp4J3VqNfWAUOO0d1Us",
